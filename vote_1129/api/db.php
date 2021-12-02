@@ -1,19 +1,22 @@
 <!-- 所有常用的function集中在這個檔案，只要include到任何檔案中，就可以使用其中的東西 -->
 
 <?php
-    $dsn="mysql:host=localhost;charset=utf8;dbname=mypolling";
-    $pdo=new PDO($dsn,'root','');
+    // $dsn="mysql:host=localhost;charset=utf8;dbname=mypolling";
+    // $pdo=new PDO($dsn,'root','');
+
+    $dsn="mysql:host=localhost;charset=utf8;dbname=s1100421";
+    $pdo=new PDO('s1100421','s1100421');
 
   //取得符合條件的一筆資料
     function find($table,$id){
         global $pdo; //將區域變數改為全域變數
-
         $sql="SELECT * FROM `$table` WHERE ";
         
         if(is_array($id)){
             foreach($id as $key=>$value){
                 $tmp[]="`$key`='$value'";
             }
+
             $sql=$sql . implode("AND",$tmp);
      
             }else{
@@ -32,7 +35,6 @@
         global $pdo; //將區域變數改為全域變數
 
         $sql="SELECT count(*) FROM `$table` WHERE ";
-        
         foreach($array as $key=>$value){
                 $tmp[]="`$key`='$value'";
             }
@@ -121,10 +123,8 @@ function insert($table,$array){
      return $pdo->exec($sql);
  }
 
-
-
 // 簡化header的function
-function to ($url){
+function to($url){
  header("location:".$url);
 }
 

@@ -8,9 +8,6 @@ $options=all('options',['topic_id'=>$_GET['id']]);
 
 ?>
 
-
-
-
 <form action="../api/edit_subject.php" method="post" class="col-6 m-auto">
           <label>問卷主題: <input type="text" name="topic" value='<?=$subject['topic'];?>' ></label>
           <input type="hidden" name="topic_id" value="<?=$subject['id'];?>">
