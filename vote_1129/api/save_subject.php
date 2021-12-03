@@ -13,10 +13,11 @@ $topic=$pdo->query($topic_sql)->fetch();
 
 
 foreach($_POST['options'] as $opt){
-
+    if($opt!=""){
+// 如果不是空白才把檔案加進資料庫
     $opt_array=["opt"=>$opt,"topic_id"=>$topic['id']];
     insert('options',$opt_array);   //因為是迴圈，這個函式會跑四次
-
+}
 
 }
 
