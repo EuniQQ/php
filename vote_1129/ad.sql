@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-12-03 06:03:32
+-- 產生時間： 2021-12-03 07:49:43
 -- 伺服器版本： 10.4.21-MariaDB
 -- PHP 版本： 7.4.23
 
@@ -24,32 +24,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `options`
+-- 資料表結構 `ad`
 --
 
-CREATE TABLE `options` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `opt` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `topic_id` int(10) UNSIGNED NOT NULL,
-  `count` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci;
-
---
--- 傾印資料表的資料 `options`
---
-
-INSERT INTO `options` (`id`, `opt`, `topic_id`, `count`) VALUES
-(1, '今天開心嗎?', 0, 0),
-(2, '甚麼時候回家？', 0, 0);
+CREATE TABLE `ad` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(64) COLLATE utf8_unicode_520_ci NOT NULL,
+  `sh` tinyint(1) UNSIGNED NOT NULL COMMENT '上架',
+  `intro` varchar(64) COLLATE utf8_unicode_520_ci DEFAULT NULL COMMENT '備註'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci COMMENT='照片管理';
 
 --
 -- 已傾印資料表的索引
 --
 
 --
--- 資料表索引 `options`
+-- 資料表索引 `ad`
 --
-ALTER TABLE `options`
+ALTER TABLE `ad`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -57,10 +49,10 @@ ALTER TABLE `options`
 --
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `options`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `ad`
 --
-ALTER TABLE `options`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `ad`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

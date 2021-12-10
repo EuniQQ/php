@@ -4,9 +4,9 @@
     // $dsn="mysql:host=localhost;charset=utf8;dbname=mypolling";
     // $pdo=new PDO($dsn,'root','');
 
-    $dsn="mysql:host=localhost;charset=utf8;dbname=s1100421";
-    $pdo=new PDO('s1100421','s1100421');
-
+    $dsn="mysql:host=localhost;charset=utf8;dbname=mypolling";
+    $pdo=new PDO($dsn,'root','');
+    session_start();
   //取得符合條件的一筆資料
     function find($table,$id){
         global $pdo; //將區域變數改為全域變數
@@ -46,7 +46,7 @@
         
        
     //取出指定資料表的所有資料
-function all($table,...$arg){
+function all($table,$arg){
     global $pdo;
     $sql="SELECT * FROM `$table` ";
     if(isset($arg[0])){
